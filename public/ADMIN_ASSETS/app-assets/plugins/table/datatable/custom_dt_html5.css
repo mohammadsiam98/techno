@@ -1,0 +1,19 @@
+/*
+	===============================
+			@Import	Function
+	===============================
+*/
+/*
+	===============================
+			@Import	Mixins
+	===============================
+*/
+.dt-buttons .dt-button {
+	color: #fff !important;
+	background-color: #655dd2 !important;
+	border-color: #655dd2;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	margin-top: 13px;
+
+}
