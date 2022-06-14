@@ -6,6 +6,22 @@
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 </style>
 
+<style>
+.alert-warning
+{
+    background: rgb(0 0 0)!important;
+    color: #ffffff!important;
+    font-size: 25px;
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: center;
+}
+.alert.alert-dismissible .btn-close
+{
+    background-color: white;
+}
+</style>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -52,18 +68,26 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <select name="category_id" class="select2 form-select"
-                                                    id="select2-basic">
+                                                    id="select2-basic" required>
                                                     <option class="disabled">--Select Option--</option>
                                                     @foreach ($categorylist as $category)
                                                     <option value="{{ $category->id }}">{{ $category->categoryName }}
                                                     </option>
                                                     @endforeach
+                                                    @if($errors->first('category_id'))
+                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                        <strong>{{$errors->first('category_id')}}</strong>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    @endif
                                                 </select>
+                                             
                                             </div>
                                         </div>
                                     </div>
                                     {{-- Category Names Fetch --}}
 
+                                   
                                     {{-- Blog Title Insert --}}
                                     <div class="col-12">
                                         <div class="mb-1 row">
@@ -74,9 +98,15 @@
                                                 <input type="text" id="title" class="form-control" name="title"
                                                     value="{{ (old('title')?old('title'):'') }}"
                                                     placeholder="Write your blog title" autocomplete="off"
-                                                    style="font-family: 'Poppins', sans-serif;font-size:20px;" />
+                                                    style="font-family: 'Poppins', sans-serif;font-size:20px;" required />
                                             </div>
                                         </div>
+                                        @if($errors->first('title'))
+                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                            <strong>{{$errors->first('title')}}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                        @endif
                                     </div>
                                     {{-- Blog Title Insert --}}
 
@@ -89,11 +119,21 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <textarea id="my-editor" name="description"
-                                                    class="form-control"></textarea>
+                                                    class="form-control" required></textarea>
+
+
+                                                    @if($errors->first('description'))
+                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                        <strong>{{$errors->first('description')}}</strong>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    @endif
                                             </div>
                                         </div>
                                     </div>
                                     {{-- Blog Description Insert --}}
+
+                                  
 
                                     {{-- Blog Image Insert --}}
                                     <div class="col-12">
@@ -108,11 +148,19 @@
                                                     <span
                                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
+                                                
                                                 <div class="custom-file-container__image-preview"></div>
+                                                @if($errors->first('image'))
+                                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                            <strong>{{$errors->first('image')}}</strong>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                        </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
                                     {{-- Blog Image Insert --}}
+
 
                                     {{-- Blog Image Thumbnail Insert --}}
                                     <div class="col-12">
@@ -132,6 +180,14 @@
                                         </div>
                                     </div>
                                     {{-- Blog Image Thumbnail Insert --}}
+
+                                    @if($errors->first('thumbnail_image'))
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>{{$errors->first('thumbnail_image')}}</strong>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    @endif
+
 
                                     {{-- Enter & Reset Button --}}
                                     <div class="col-12">
