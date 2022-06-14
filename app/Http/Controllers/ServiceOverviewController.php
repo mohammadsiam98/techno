@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
+
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\ServiceOverview;
@@ -46,9 +46,13 @@ class ServiceOverViewController extends Controller
             $ServiceOverviewDetails->details = $request->details;
             $ServiceOverviewDetails->category_id=$request->category_id;
          
-            $image  = $request->file('image');
-            Storage::putFile('public/img/',$image);
-            $ServiceOverviewDetails->image ="storage/img/".$image->hashName();
+            if ($image = $request->file('image'))
+            {
+                $destinationPath = 'images/ServiceOverViewSectionImages/';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $ServiceOverviewDetails['image'] = "$profileImage";
+            }
            
             $ServiceOverviewDetails->save();
             return redirect()->route('ServiceOverviewDetails.list')->with('success','Created Successfully');
@@ -79,11 +83,14 @@ class ServiceOverViewController extends Controller
         $ServiceOverviewDetails->category_id=$request->category_id;
 
 
-        if($request->file('image')){
-            $image  = $request->file('image');
-            Storage::putFile('public/img/',$image);
-            $ServiceOverviewDetails->image ="storage/img/".$image->hashName();
+        if ($image = $request->file('image'))
+        {
+            $destinationPath = 'images/ServiceOverViewSectionImages/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $ServiceOverviewDetails['image'] = "$profileImage";
         }
+       
         $ServiceOverviewDetails->save();
         return redirect()->route('ServiceOverviewDetails.list')->with('success','Updated Successfully');
     }
@@ -102,4 +109,37 @@ class ServiceOverViewController extends Controller
         $ServiceOverviewDetails = ServiceOverview::find($id);
         return view('pages.CRUD_OPERATIONS.DynamicServicesInOnePage.ServiceOverView_crud.preview',compact('ServiceOverviewDetails'));
     }
+
+    public function restoreList()
+    {
+        //
+        $ServiceOverviewDetails = ServiceOverview::onlyTrashed()->get();
+        return view('pages.CRUD_OPERATIONS.DynamicServicesInOnePage.ServiceOverView_crud.restoreList',compact('ServiceOverviewDetails'));
+    }
+
+
+    public function restoreData($id)
+    {
+        //
+        $ServiceOverviewDetails = ServiceOverview::onlyTrashed()->find($id)->restore();
+        if(!empty($ServiceOverviewDetails)){
+            return redirect()->route('ServiceOverviewDetails.restoreList')->with('success',"Restored Successfully");
+        }
+        else{
+            return 'This id not found';
+        }
+    }
+
+
+    public function forceDelete($id)
+    {
+        //
+        $ServiceOverviewDetails = Blog::onlyTrashed()->find($id)->forceDelete();
+        if(!empty($ServiceOverviewDetails)){
+            return redirect()->route('ServiceOverviewDetails.restoreList')->with('success',"Permanently Deleted Successfully");
+        }
+        else{
+            return 'This id not found';
+        }  
+    } 
 }

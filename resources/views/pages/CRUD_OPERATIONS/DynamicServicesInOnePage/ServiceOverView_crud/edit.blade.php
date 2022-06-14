@@ -106,6 +106,11 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <h3>The image which you have uploaded is</h3>
+                    <img src="/images/ServiceOverViewSectionImages/{{$ServiceOverviewDetails->image}}" style="width: 33%">
+                </div>
                 
             </section>
         </div>

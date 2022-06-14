@@ -88,7 +88,7 @@
                 </div>
                 <div class="row">
                     <h3>The image which you have uploaded is</h3>
-                    <img style="width: 150px; height:auto" src="{{ asset('images/SectorServices/'.$SectorServices->created_at->format('Y/M/').'/'.$SectorServices->image) }}" alt="Sector Services Images">
+                    <img src="images/SectorServices/{{ $SectorServices->image }}" style="width: 33%" alt="sector service image">
                 </div>
             </section>
 

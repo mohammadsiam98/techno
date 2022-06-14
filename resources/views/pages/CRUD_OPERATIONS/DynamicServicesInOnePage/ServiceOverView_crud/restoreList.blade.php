@@ -1,16 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
-@section('title', 'Service Overview Details')
+@section('title', 'restoreLists')
 
-<style>
-    .badge.badge-light-primary {
-    background-color: #9fff9f;
-    color: #7367F0!important;
-    margin-top: 7px;
-    display: flex;
-    justify-content: center;
-}
-</style>
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -20,9 +11,9 @@
             <div class="content-header-left col-md-12 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <a href="{{route('ServiceOverviewDetails.create')}}">
-                            <button type="button" class="btn btn-dark waves-effect waves-float waves-light" style="float: right; margin-left:10px;">
-                                <span style="font-size: 22px; margin-right:5px;">Create new record</span>
+                        <a href="{{route('ServiceOverviewDetails.create')}}" class="actionButton">
+                            <button type=" button" class="btn btn-dark waves-effect waves-float waves-light" style="float: right; margin-left:10px">
+                                <span style="font-size: 22px; margin-right:5px;">Create Record</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <line x1="12" y1="8" x2="12" y2="16"></line>
@@ -31,35 +22,38 @@
                             </button>
                         </a>
 
-                        <a href="{{route('ServiceOverviewDetails.restoreList')}}">
-                            <button type="button" class="btn btn-danger waves-effect waves-float waves-light" style="float: right; margin-left:10px;">
-                                <span style="font-size: 22px; margin-right:5px;">Restore List</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="16"></line>
-                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                        <a href="{{route('ServiceOverviewDetails.list')}}" class="actionButton">
+                            <button type="button" class="btn btn-primary waves-effect waves-float waves-light" style="float: right">
+                                <span style="font-size: 22px; margin-right:5px;">Service Overview List</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                                    <line x1="8" y1="6" x2="21" y2="6"></line>
+                                    <line x1="8" y1="12" x2="21" y2="12"></line>
+                                    <line x1="8" y1="18" x2="21" y2="18"></line>
+                                    <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                    <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                    <line x1="3" y1="18" x2="3.01" y2="18"></line>
                                 </svg>
                             </button>
                         </a>
-
-                        
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="content-body">
             <!-- Basic Tables start -->
             <div class="row" id="basic-table">
                 <div class="col-12">
                     <div class="card">
+
                         <div class="widget-content widget-content-area br-6">
-                            <table id="html5-extension" class="table table-bordered non-hover" style="width:100%">
+                            <table id="html5-extension" class="table table-hover non-hover" style="width:100%">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Serial Number</th>
                                         <th class="text-center">Category</th>
-                                        <th class="text-center">Page Heading</th>
-                                        <th class="text-center">Service Overview Title</th>
+                                        <th class="text-center">Service Heading</th>
+                                        <th class="text-center">Service title</th>
                                         <th class="dt-no-sorting">Action</th>
                                     </tr>
                                 </thead>

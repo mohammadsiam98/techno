@@ -84,7 +84,7 @@
                 </div>
                 <div class="row">
                     <h3>The image which you have uploaded is</h3>
-                    <img src="{{url($ServiceOverviewDetails->image)}}" style="width: 120px;height:auto;" alt="">
+                    <img src="/images/ServiceOverViewSectionImages/{{$ServiceOverviewDetails->image}}" style="width: 33%">
                 </div>
             </section>
             <!-- Basic Tabs end -->

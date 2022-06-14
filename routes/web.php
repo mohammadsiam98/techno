@@ -127,6 +127,9 @@ Route::group(['middleware'=>['auth','role:superadministrator']],function(){
     Route::post('/service-overview/update/{id}', 'App\Http\Controllers\ServiceOverViewController@update')->name('ServiceOverviewDetails.update');
     Route::get('/service-overview/delete/{id}', 'App\Http\Controllers\ServiceOverViewController@destroy')->name('ServiceOverviewDetails.destroy');
     Route::get('/service-overview/preview/{id}', 'App\Http\Controllers\ServiceOverViewController@preview')->name('ServiceOverviewDetails.preview');
+    Route::get('/service-overview/restoreList', 'App\Http\Controllers\ServiceOverViewController@restoreList')->name('ServiceOverviewDetails.restoreList');
+    Route::get('/service-overview/destroyList/{id}', 'App\Http\Controllers\ServiceOverViewController@restoreData')->name('ServiceOverviewDetails.restoreData');
+    Route::get('/service-overview-Permanently-Delete/{id}', 'App\Http\Controllers\ServiceOverViewController@forceDelete')->name('ServiceOverviewDetails.forceDelete');
 
 
     

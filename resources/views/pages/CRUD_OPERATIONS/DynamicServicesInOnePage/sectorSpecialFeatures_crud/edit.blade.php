@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body">
-                            <form id="" action="{{route('SectorSF.update',$SectorSF->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('SectorSF.update',$SectorSF->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
 
@@ -99,7 +99,10 @@
                             </form>
                         </div>
                     </div>
-
+                </div>
+                <div class="row">
+                    <h3>The image which you have uploaded is</h3>
+                    <img src="/images/Sector_SF_Section/{{ $SectorSF->image }}" style="width: 33%">
                 </div>
             </section>
         </div>

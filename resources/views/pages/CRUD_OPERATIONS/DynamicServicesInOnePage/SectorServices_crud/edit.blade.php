@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="card">
                         <div class="card-body">
-                            <form id="" action="{{route('SectorServices.update',$SectorServices->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('SectorServices.update',$SectorServices->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -119,9 +119,9 @@
 
                 </div>
 
-                <div>
-                    <h3>The image which you have uploaded is </h3>
-                    <img style="width: 150px; height:auto" src="{{ asset('images/SectorServices/'.$SectorServices->created_at->format('Y/M/').'/'.$SectorServices->image) }}" alt="Sector Services Images">
+                <div class="row">
+                    <h3>The image which you have uploaded is</h3>
+                    <img src="/images/SectorServices/{{ $SectorServices->image }}" style="width: 33%">
                 </div>
 
             </section>
