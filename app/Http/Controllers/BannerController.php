@@ -72,7 +72,7 @@ class BannerController extends Controller
             return view('pages.CRUD_OPERATIONS.HomePageCrudOperation.Banner_crud.edit',compact('banner'));
         }
         else{
-            return 'putki mara khaisi';
+            return 'Invalid id';
         }
         
     }
@@ -109,7 +109,7 @@ class BannerController extends Controller
         }
         else
         {
-          return 'siam';
+          return 'invalid id';
         }
     }
 

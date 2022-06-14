@@ -99,14 +99,15 @@
                                                     value="{{ (old('title')?old('title'):'') }}"
                                                     placeholder="Write your blog title" autocomplete="off"
                                                     style="font-family: 'Poppins', sans-serif;font-size:20px;" required />
+                                                    @if($errors->first('title'))
+                                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                        <strong>{{$errors->first('title')}}</strong>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    </div>
+                                                    @endif
                                             </div>
                                         </div>
-                                        @if($errors->first('title'))
-                                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                            <strong>{{$errors->first('title')}}</strong>
-                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                        </div>
-                                        @endif
+                                      
                                     </div>
                                     {{-- Blog Title Insert --}}
 

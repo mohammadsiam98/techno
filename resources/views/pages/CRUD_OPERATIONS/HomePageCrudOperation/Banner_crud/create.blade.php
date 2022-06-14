@@ -2,6 +2,23 @@
 @section('content')
 @section('title', 'Banner Create')
 
+
+<style>
+    .alert-warning
+    {
+        background: rgb(0 0 0)!important;
+        color: #ffffff!important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+    .alert.alert-dismissible .btn-close
+    {
+        background-color: white;
+    }
+</style>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -49,8 +66,14 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="heading" class="form-control" name="heading"
                                                     value="{{ (old('heading')?old('heading'):'') }}"
-                                                    placeholder="Enter your banner header" autocomplete="off" />
+                                                    placeholder="Enter your banner header" autocomplete="off" required />
                                             </div>
+                                            @if($errors->first('heading'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('heading')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <!-- Banner Header Insert -->
@@ -65,8 +88,14 @@
                                                 <input type="text" id="subheading" class="form-control"
                                                     name="subheading"
                                                     value="{{ (old('subheading')?old('subheading'):'') }}"
-                                                    placeholder="Enter your banner subheader" autocomplete="off" />
+                                                    placeholder="Enter your banner subheader" autocomplete="off" required />
                                             </div>
+                                            @if($errors->first('subheading'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('subheading')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <!-- Banner Sub-Header Insert -->
@@ -85,6 +114,12 @@
                                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
                                                 <div class="custom-file-container__image-preview"></div>
+                                                @if($errors->first('image'))
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    <strong>{{$errors->first('image')}}</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
