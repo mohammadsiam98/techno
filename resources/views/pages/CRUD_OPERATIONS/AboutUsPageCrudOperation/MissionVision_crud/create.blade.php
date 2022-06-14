@@ -46,6 +46,12 @@
                                             <div class="col-sm-9">
                                                 <textarea id="mission" class="form-control" name="mission" value="{{ (old('mission')?old('mission'):'') }}" autocomplete="off"> </textarea>
                                             </div>
+                                            @if($errors->first('mission'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('mission')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -56,6 +62,12 @@
                                             <div class="col-sm-9">
                                                 <textarea id="vision" class="form-control" name="vision" value="{{ (old('vision')?old('vision'):'') }}" autocomplete="off"></textarea>
                                             </div>
+                                            @if($errors->first('vision'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('vision')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-12">

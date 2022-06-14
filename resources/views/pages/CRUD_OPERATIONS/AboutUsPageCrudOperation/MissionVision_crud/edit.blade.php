@@ -59,7 +59,6 @@
                                     </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Update Details</button>
-                                        
                                     </div>
                                 </div>
                             </form>
@@ -71,4 +70,6 @@
     </div>
 </div>
 <!-- END: Content-->
+
+
 @endsection

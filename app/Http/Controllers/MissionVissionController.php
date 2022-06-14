@@ -41,7 +41,12 @@ class MissionVissionController extends Controller
     {
         //
         $goal = MissionVission::find($id);
-        return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.MissionVision_crud.edit',compact('goal'));
+        if(!empty($goal)){
+            return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.MissionVision_crud.edit',compact('goal'));
+        }
+        else{
+            return 'Invalid id';
+        }
     }
 
     public function update(Request $request, $id)

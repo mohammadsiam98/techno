@@ -46,6 +46,12 @@
                                             <div class="col-sm-9">
                                                 <textarea name="details" id="" cols="30" rows="10" id="details" class="form-control" name="details" value="{{ (old('details')?old('details'):'') }}" placeholder="Enter our story details" autocomplete="off"></textarea>
                                             </div>
+                                            @if($errors->first('details'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('details')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -36,14 +36,17 @@ class OurStoriesController extends Controller
 
     public function edit($id)
     {
-        //
-        $ourStoryDetails = ourStory::find($id); // Fetch specific banner
-        return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.ourStory_crud.edit',compact('ourStoryDetails'));
+        $ourStoryDetails = ourStory::find($id);
+        if(!empty($ourStoryDetails)){
+            return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.ourStory_crud.edit',compact('ourStoryDetails'));
+        }
+        else{
+            return 'Invalid id';
+        }
     }
 
     public function update(Request $request, $id)
     {
-        // Fetch Specific single
         $ourStoryDetails = ourStory::find($id);
         $ourStoryDetails->details = $request->details;
         $ourStoryDetails->save();
@@ -52,7 +55,6 @@ class OurStoriesController extends Controller
 
     public function destroy($id)
     {
-        //
         $ourStoryDetails = ourStory::find($id);
         $ourStoryDetails->delete();
         return redirect()->route('ourStory.list')->with('success','Deleted Successfully');
@@ -60,7 +62,6 @@ class OurStoriesController extends Controller
 
     public function preview($id)
     {
-        //
         $ourStoryDetails = ourStory::find($id);
         return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.ourStory_crud.preview',compact('ourStoryDetails'));
     }
