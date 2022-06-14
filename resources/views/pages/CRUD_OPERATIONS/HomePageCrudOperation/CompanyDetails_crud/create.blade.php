@@ -2,6 +2,23 @@
 @section('content')
 @section('title', 'company Details')
 
+<style>
+    .alert-warning
+    {
+        background: rgb(0 0 0)!important;
+        color: #ffffff!important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+    .alert.alert-dismissible .btn-close
+    {
+        background-color: white;
+    }
+</style>
+
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -53,6 +70,12 @@
                                                     placeholder="Write your company description" id="" cols="30"
                                                     rows="10"> {{ (old('details')?old('details'):'') }} </textarea>
                                             </div>
+                                            @if($errors->first('details'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('details')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                     <!-- Company Details Insert -->
