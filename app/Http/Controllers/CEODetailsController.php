@@ -65,8 +65,13 @@ class CEODetailsController extends Controller
     public function edit($id)
     {
         //
-        $Ceo = CeoDetails::find($id); // Fetch specific id
-        return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.CEO_crud.edit',compact('Ceo'));
+        $Ceo = CeoDetails::find($id);
+        if(!empty($Ceo)){
+            return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.CEO_crud.edit',compact('Ceo'));
+        }
+        else{
+            return 'Invalid id';
+        }   
     }
 
     public function update(Request $request, $id)
