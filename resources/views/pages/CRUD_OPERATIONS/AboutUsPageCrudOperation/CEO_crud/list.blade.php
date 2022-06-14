@@ -86,9 +86,11 @@
                     </div>
                 </div>
             </div>
+            <!-- Basic Tables start -->
         </div>
     </div>
 </div>
+<!-- END: Content-->
 
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>

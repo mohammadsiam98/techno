@@ -46,6 +46,12 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="name" class="form-control" name="name" value="{{ (old('name')?old('name'):'') }}" placeholder="Enter the name of the CEO" autocomplete="off" />
                                             </div>
+                                            @if($errors->first('name'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('name')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -57,6 +63,12 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="designation" class="form-control" name="designation" value="{{ (old('designation')?old('designation'):'') }}" placeholder="Enter the designation" autocomplete="off" />
                                             </div>
+                                            @if($errors->first('designation'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('designation')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -68,6 +80,12 @@
                                             <div class="col-sm-9">
                                                 <textarea type="text" id="speech" class="form-control" name="speech" value="{{ (old('speech')?old('speech'):'') }}" placeholder="Write the Description of the CEO" autocomplete="off" rows="20" cols="40"></textarea>
                                             </div>
+                                            @if($errors->first('speech'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('speech')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -81,6 +99,12 @@
                                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
                                                 <div class="custom-file-container__image-preview"></div>
+                                                @if($errors->first('image'))
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('image')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
