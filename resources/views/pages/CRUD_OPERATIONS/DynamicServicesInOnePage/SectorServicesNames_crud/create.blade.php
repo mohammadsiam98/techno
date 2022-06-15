@@ -3,6 +3,22 @@
 @section('title', 'Service Name | Create')
 
 
+<style>
+    .alert-warning
+    {
+        background: rgb(0 0 0)!important;
+        color: #ffffff!important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+    .alert.alert-dismissible .btn-close
+    {
+        background-color: white;
+    }
+</style>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -46,6 +62,14 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="Sector_service_name" class="form-control" name="Sector_service_name" value="{{ (old('Sector_service_name')?old('Sector_service_name'):'') }}" placeholder="Enter a heading" autocomplete="off" />
                                             </div>
+
+                                            @if($errors->first('Sector_service_name'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('Sector_service_name')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
+                                            
                                         </div>
                                     </div>
 

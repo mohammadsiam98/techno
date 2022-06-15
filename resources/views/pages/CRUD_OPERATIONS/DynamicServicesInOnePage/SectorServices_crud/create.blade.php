@@ -2,6 +2,21 @@
 @section('content')
 @section('title', 'Sectorwise Services Create')
 
+<style>
+    .alert-warning
+    {
+        background: rgb(0 0 0)!important;
+        color: #ffffff!important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+    .alert.alert-dismissible .btn-close
+    {
+        background-color: white;
+    }
+</style>
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -57,16 +72,20 @@
                                     </div>
                                     {{-- Service heading Name List End --}}
 
-
-
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
                                                 <label class="col-form-label" for="title">Service title</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" id="title" class="form-control" name="title" value="{{ (old('title')?old('title'):'') }}" placeholder="Enter your service name" autocomplete="off" />
+                                                <input type="text" id="title" class="form-control" name="title" value="{{ (old('title')?old('title'):'') }}" placeholder="Enter your service name" autocomplete="off" required />
                                             </div>
+                                            @if($errors->first('title'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('title')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -76,8 +95,14 @@
                                                 <label class="col-form-label" for="details">Service details</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" id="details" class="form-control" name="details" value="{{ (old('details')?old('details'):'') }}" placeholder="Enter your service details" autocomplete="off" />
+                                                <input type="text" id="details" class="form-control" name="details" value="{{ (old('details')?old('details'):'') }}" placeholder="Enter your service details" autocomplete="off" required />
                                             </div>
+                                            @if($errors->first('details'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('details')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -104,10 +129,16 @@
                                             <div class="custom-file-container" data-upload-id="myFirstImage">
                                                 <label style="font-family: 'Poppins', sans-serif; color:black"> Choose an image<a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image"></a></label>
                                                 <label class="custom-file-container__custom-file">
-                                                    <input type="file" name="image" />
+                                                    <input type="file" name="image" required />
                                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
                                                 <div class="custom-file-container__image-preview"></div>
+                                                @if($errors->first('image'))
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                    <strong>{{$errors->first('image')}}</strong>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

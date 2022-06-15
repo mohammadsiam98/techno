@@ -86,10 +86,8 @@
                     </div>
                     <!-- Tabs with Icon ends -->
                 </div>
-                <div class="row">
-                    <h3>The image which you have uploaded is</h3>
-                    <img src="images/SectorServices/{{ $SectorServices->image }}" style="width: 33%" alt="sector service image">
-                </div>
+
+                <img class="blog-img-view-121" src="{{ asset('images/SectorServices/'.$SectorServices->created_at->format('Y/M/').'/'.$SectorServices->image) }}" style="width: 33%;" alt="Sector Service Image">
             </section>
 
                
