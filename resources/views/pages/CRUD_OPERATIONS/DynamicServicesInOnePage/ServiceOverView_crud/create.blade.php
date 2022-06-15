@@ -3,6 +3,22 @@
 @section('content')
 @section('title', 'Service Overview Create')
 
+<style>
+    .alert-warning
+    {
+        background: rgb(0 0 0)!important;
+        color: #ffffff!important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+    .alert.alert-dismissible .btn-close
+    {
+        background-color: white;
+    }
+</style>
+
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -39,8 +55,8 @@
                                 @csrf
                                 {{method_field('PUT')}}
                                 <div class="row">
-                                     {{-- Category List --}}
-                                     <div class="col-12 basic-select2">
+                                    
+                                    <div class="col-12 basic-select2">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
                                                 <label class="col-form-label" for="title">Category</label>
@@ -55,7 +71,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- Category List --}}
 
                                     <div class="col-12">
                                         <div class="mb-1 row">
@@ -65,8 +80,15 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="page_heading" class="form-control" name="page_heading" value="{{ (old('page_heading')?old('page_heading'):'') }}" placeholder="Enter the page heading" autocomplete="off" />
                                             </div>
+                                            @if($errors->first('page_heading'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('page_heading')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -75,8 +97,15 @@
                                             <div class="col-sm-9">
                                                 <input type="text" id="title" class="form-control" name="title" value="{{ (old('title')?old('title'):'') }}" placeholder="Enter Service Overview Title" autocomplete="off" />
                                             </div>
+                                            @if($errors->first('title'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('title')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -85,8 +114,15 @@
                                             <div class="col-sm-9">
                                                 <textarea id="my-editor" name="details" class="form-control"></textarea>
                                             </div>
+                                            @if($errors->first('details'))
+                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('details')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="custom-file-container" data-upload-id="myFirstImage">
@@ -96,14 +132,22 @@
                                                     <span class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
                                                 <div class="custom-file-container__image-preview"></div>
+                                                @if($errors->first('image'))
+                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <strong>{{$errors->first('image')}}</strong>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-info">Reset</button>
 
                                     </div>
+                                    
                                 </div>
                             </form>
                         </div>
@@ -115,9 +159,5 @@
     </div>
 </div>
 <!-- END: Content-->
-    
-
-
-
 
 @endsection

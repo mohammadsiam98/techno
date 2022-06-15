@@ -60,8 +60,6 @@ class ServiceOverViewController extends Controller
         else{
             return 'In this category there is already data inserted.';
         }
-
-       
     }
 
     public function edit($id)
@@ -70,7 +68,6 @@ class ServiceOverViewController extends Controller
         $ServiceOverviewDetails = ServiceOverview::find($id);
         $categorylist = Category::all();
         return view('pages.CRUD_OPERATIONS.DynamicServicesInOnePage.ServiceOverView_crud.edit',compact('ServiceOverviewDetails','categorylist'));
-
     }
 
     public function update(Request $request, $id)
@@ -82,7 +79,6 @@ class ServiceOverViewController extends Controller
         $ServiceOverviewDetails->details = $request->details;
         $ServiceOverviewDetails->category_id=$request->category_id;
 
-
         if ($image = $request->file('image'))
         {
             $destinationPath = 'images/ServiceOverViewSectionImages/';
@@ -91,6 +87,7 @@ class ServiceOverViewController extends Controller
             $ServiceOverviewDetails['image'] = "$profileImage";
         }
        
+        
         $ServiceOverviewDetails->save();
         return redirect()->route('ServiceOverviewDetails.list')->with('success','Updated Successfully');
     }
