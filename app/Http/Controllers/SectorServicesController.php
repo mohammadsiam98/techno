@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -53,7 +53,22 @@ class SectorServicesController extends Controller
         //save Image to the thumbnail path
         Image::make($image)->save(public_path($SS_image.$IMGNAME));
         $SectorServices->image = $IMGNAME;
-        // dd($SectorServices);
+        Toastr::success('Sector Services Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $SectorServices->save();
         return redirect()->route('SectorServices.list')->with('success','Created Successfully');
     }
@@ -94,7 +109,22 @@ class SectorServicesController extends Controller
             //saving the new image
             $SectorServices->image = $IMGNAME;
         }
-        // dd($SectorServices);
+        Toastr::success('Sector Services Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
 
         $SectorServices->save();
         return redirect()->route('SectorServices.list')->with('success','Updated Successfully');
@@ -104,6 +134,22 @@ class SectorServicesController extends Controller
     {
         //
         $SectorServices = SectorServices::find($id);
+        Toastr::error('Sector Services Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $SectorServices->delete();
         return redirect()->route('SectorServices.list')->with('success',"Deleted Successfully");
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Toastr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\SectorTechnologiesName;
@@ -50,7 +51,22 @@ class SectorStackTechnologiesController extends Controller
         //save Image to the thumbnail path
         Image::make($image)->save(public_path($SD_image.$IMGNAME));
         $stackDetails->image = $IMGNAME;
-      
+        Toastr::error('Stack Details Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $stackDetails->save();
         return redirect()->route('sector_technologies_details.list')->with('success','Created Successfully');
     }
@@ -90,6 +106,23 @@ class SectorStackTechnologiesController extends Controller
             $stackDetails->image = $IMGNAME;
         }
 
+        Toastr::error('Stack Details Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+
         $stackDetails->save();
         return redirect()->route('sector_technologies_details.list')->with('success',"Deleted Successfully");
     }
@@ -98,6 +131,22 @@ class SectorStackTechnologiesController extends Controller
     {
         //
         $stackDetails = StackTech::find($id);
+        Toastr::error('Stack Details Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $stackDetails->delete();
         return redirect()->route('sector_technologies_details.list')->with('success',"Deleted Successfully");
     }

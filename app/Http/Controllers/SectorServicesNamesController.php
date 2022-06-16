@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\SectorServicesNames;
 class SectorServicesNamesController extends Controller
@@ -28,6 +28,22 @@ class SectorServicesNamesController extends Controller
         ]);
         $sector_services_name_heading = new SectorServicesNames;
         $sector_services_name_heading->Sector_service_name = $request->Sector_service_name;
+        Toastr::success('Sector Services Name Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_services_name_heading->save();
         return redirect()->route('SectorServicesNames.list')->with('success','New Category Created Successfully'); // redirect to banner create page with a success message.
 
@@ -37,13 +53,34 @@ class SectorServicesNamesController extends Controller
     {
         //
         $sector_services_name_heading = SectorServicesNames::find($id); 
-        return view('pages.CRUD_OPERATIONS.DynamicServicesInOnePage.SectorServicesNames_crud.edit',compact('sector_services_name_heading'));
+        if(!empty($sector_services_name_heading)){
+            return view('pages.CRUD_OPERATIONS.DynamicServicesInOnePage.SectorServicesNames_crud.edit',compact('sector_services_name_heading'));
+        }
+        else{
+            return 'Invalid id';
+        }
     }
 
     public function update(Request $request, $id)
     {
         $sector_services_name_heading = SectorServicesNames::find($id);
         $sector_services_name_heading->Sector_service_name = $request->Sector_service_name;
+        Toastr::success('Sector Services Name Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_services_name_heading->save();
         return redirect()->route('SectorServicesNames.list')->with('success','Updated Successfully');
     }
@@ -52,6 +89,22 @@ class SectorServicesNamesController extends Controller
     {
         //
         $sector_services_name_heading = SectorServicesNames::find($id);
+        Toastr::error('Sector Services Name Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_services_name_heading->delete();
         return redirect()->route('SectorServicesNames.list')->with('success','Deleted Successfully');
     }

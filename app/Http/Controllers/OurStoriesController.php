@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\ourStory;
 class OurStoriesController extends Controller
@@ -29,8 +29,24 @@ class OurStoriesController extends Controller
         ]);
         $ourStoryDetails = new ourStory;
         $ourStoryDetails->details = $request->details;
+        Toastr::success('Our Story Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $ourStoryDetails->save();
-        return redirect()->route('ourStory.list')->with('success','Our Story Created Successfully'); // redirect to banner create page with a success message.
+        return redirect()->route('ourStory.list');
 
     }
 
@@ -49,15 +65,47 @@ class OurStoriesController extends Controller
     {
         $ourStoryDetails = ourStory::find($id);
         $ourStoryDetails->details = $request->details;
+        Toastr::success('Our Story Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $ourStoryDetails->save();
-        return redirect()->route('ourStory.list')->with('success','Details Updated Successfully');
+        return redirect()->route('ourStory.list');
     }
 
     public function destroy($id)
     {
         $ourStoryDetails = ourStory::find($id);
+        Toastr::error('Our Story Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $ourStoryDetails->delete();
-        return redirect()->route('ourStory.list')->with('success','Deleted Successfully');
+        return redirect()->route('ourStory.list');
     }
 
     public function preview($id)

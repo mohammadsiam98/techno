@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\ProjectProposal;
 class ProjectProposalController extends Controller
@@ -32,8 +32,24 @@ class ProjectProposalController extends Controller
     {
         //
         $ProjectProposalDetails = ProjectProposal::find($id);
+        Toastr::error('Project Proposal Details Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $ProjectProposalDetails->delete();
-        return redirect()->route('ProjectProposal.list')->with('success','Deleted Successfully');
+        return redirect()->route('ProjectProposal.list');
     }
 
     public function preview($id)

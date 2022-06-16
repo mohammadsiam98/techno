@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\SectorSpecialFeatureSection;
 use App\Models\SectorSpecialFeaturesDynamicList;
@@ -26,7 +26,23 @@ class SectorSpecialFeaturesDynamicController extends Controller
         //
         $SectorSFD = new SectorSpecialFeaturesDynamicList;
         $SectorSFD->sector_Special_feature_id =$request->sector_Special_feature_id;
-        $SectorSFD->featureName = $request->featureName;      
+        $SectorSFD->featureName = $request->featureName;  
+        Toastr::success('Feature Name Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+        ]);    
         $SectorSFD->save();
         return redirect()->route('SectorSFD.list')->with('success','Created Successfully');
     }
@@ -44,7 +60,23 @@ class SectorSpecialFeaturesDynamicController extends Controller
         //
         $SectorSFD = SectorSpecialFeaturesDynamicList::find($id);
         $SectorSFD->sector_Special_feature_id =$request->sector_Special_feature_id;
-        $SectorSFD->featureName = $request->featureName;      
+        $SectorSFD->featureName = $request->featureName; 
+        Toastr::success('Feature Name Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+        ]);         
         $SectorSFD->save();
         return redirect()->route('SectorSFD.list')->with('success',"Deleted Successfully");
     }
@@ -53,6 +85,22 @@ class SectorSpecialFeaturesDynamicController extends Controller
     {
         //
         $SectorSFD = SectorSpecialFeaturesDynamicList::find($id);
+        Toastr::success('Feature Name Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+        ]);    
         $SectorSFD->delete();
         return redirect()->route('SectorSFD.list')->with('success',"Deleted Successfully");
     }

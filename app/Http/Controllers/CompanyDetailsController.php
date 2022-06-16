@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\CompanyDetails;
 class CompanyDetailsController extends Controller
@@ -31,16 +31,36 @@ class CompanyDetailsController extends Controller
         ]);
         $Details = new CompanyDetails;
         $Details->details = $request->details;
+        Toastr::success('Company Details Inserted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $Details->save();
-        return redirect()->route('CompanyDetails.list')->with('success','New Details created Successfully'); // redirect to banner create page with a success message.
-
+        return redirect()->route('CompanyDetails.list');
     }
 
     public function edit($id)
     {
         //
-        $Details = CompanyDetails::find($id); // Fetch specific id
-        return view('pages.CRUD_OPERATIONS.HomePageCrudOperation.CompanyDetails_crud.edit',compact('Details'));
+        $Details = CompanyDetails::find($id);
+        if(!empty($Details)){
+            return view('pages.CRUD_OPERATIONS.HomePageCrudOperation.CompanyDetails_crud.edit',compact('Details'));
+        }
+        else{
+            return 'Invalid id';
+        }
     }
 
     public function update(Request $request, $id)
@@ -48,16 +68,48 @@ class CompanyDetailsController extends Controller
         // Fetch Specific row and update
         $Details = CompanyDetails::find($id);
         $Details->details = $request->details;
+        Toastr::success('Company Details Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $Details->save();
-        return redirect()->route('CompanyDetails.list')->with('success','Details updated Successfully');
+        return redirect()->route('CompanyDetails.list');
     }
 
     public function destroy($id)
     {
         //
         $Details = CompanyDetails::find($id);
+        Toastr::error('Company Details Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $Details->delete();
-        return redirect()->route('CompanyDetails.list')->with('success','Details Deleted Successfully');
+        return redirect()->route('CompanyDetails.list');
     }
 
     public function preview($id)

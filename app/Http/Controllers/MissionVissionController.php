@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\MissionVission;
 class MissionVissionController extends Controller
@@ -32,6 +32,22 @@ class MissionVissionController extends Controller
         $goal = new MissionVission;
         $goal->mission = $request->mission;
         $goal->vision = $request->vision;
+        Toastr::success('Mission Vission Details Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $goal->save();
         return redirect()->route('goal.list')->with('success','New Entry created Successfully'); // redirect to banner create page with a success message.
 
@@ -55,6 +71,22 @@ class MissionVissionController extends Controller
         $goal = MissionVission::find($id);
         $goal->mission = $request->mission;
         $goal->vision = $request->vision;
+        Toastr::success('Mission Vission Details Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $goal->save();
         return redirect()->route('goal.list')->with('success','Details updated Successfully');
     }
@@ -63,6 +95,22 @@ class MissionVissionController extends Controller
     {
         //
         $goal = MissionVission::find($id);
+        Toastr::error('Mission Vission Details Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $goal->delete();
         return redirect()->route('goal.list')->with('success','Deleted Successfully');
     }

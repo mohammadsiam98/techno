@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\ServiceOverview;
@@ -53,7 +53,22 @@ class ServiceOverViewController extends Controller
                 $image->move($destinationPath, $profileImage);
                 $ServiceOverviewDetails['image'] = "$profileImage";
             }
-           
+            Toastr::error('Service Overview Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+            "closeButton"=> "true",
+            "debug" => "false",
+            "newestOnTop"=> "false",
+            "progressBar"=> "true",
+            "preventDuplicates"=> "false",
+            "showDuration"=> "300",
+            "hideDuration"=> "1000",
+            "timeOut"=>"5000",
+            "extendedTimeOut"=> "1000",
+            "showEasing"=> "swing",
+            "hideEasing"=> "linear",
+            "showMethod"=> "fadeIn",
+            "hideMethod"=> "fadeOut",
+            "preventDuplicates"=> "true",
+        ]);
             $ServiceOverviewDetails->save();
             return redirect()->route('ServiceOverviewDetails.list')->with('success','Created Successfully');
         }
@@ -86,7 +101,22 @@ class ServiceOverViewController extends Controller
             $image->move($destinationPath, $profileImage);
             $ServiceOverviewDetails['image'] = "$profileImage";
         }
-       
+        Toastr::error('Service Overview Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         
         $ServiceOverviewDetails->save();
         return redirect()->route('ServiceOverviewDetails.list')->with('success','Updated Successfully');
@@ -96,6 +126,22 @@ class ServiceOverViewController extends Controller
     {
         //
         $ServiceOverviewDetails = ServiceOverview::find($id);
+        Toastr::error('Service Overview Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+            "closeButton"=> "true",
+            "debug" => "false",
+            "newestOnTop"=> "false",
+            "progressBar"=> "true",
+            "preventDuplicates"=> "false",
+            "showDuration"=> "300",
+            "hideDuration"=> "1000",
+            "timeOut"=>"5000",
+            "extendedTimeOut"=> "1000",
+            "showEasing"=> "swing",
+            "hideEasing"=> "linear",
+            "showMethod"=> "fadeIn",
+            "hideMethod"=> "fadeOut",
+            "preventDuplicates"=> "true",
+        ]);
         $ServiceOverviewDetails->delete();
         return redirect()->route('ServiceOverviewDetails.list')->with('success',"Deleted Successfully");
     }

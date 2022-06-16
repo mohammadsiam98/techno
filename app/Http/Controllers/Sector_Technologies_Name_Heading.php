@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\SectorTechnologiesName;
 use App\Models\Category;
@@ -31,8 +31,24 @@ class Sector_Technologies_Name_Heading extends Controller
         $sector_Technology_head = new SectorTechnologiesName;
         $sector_Technology_head->category_id=$request->category_id;
         $sector_Technology_head->Sector_technologies_name_heading = $request->Sector_technologies_name_heading;
+        Toastr::success('Sector Technology heading Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_Technology_head->save();
-        return redirect()->route('SectorTechnologyHeading.list')->with('success','Created Successfully'); 
+        return redirect()->route('SectorTechnologyHeading.list'); 
     }
 
     public function edit($id)
@@ -48,6 +64,22 @@ class Sector_Technologies_Name_Heading extends Controller
         $sector_Technology_head = SectorTechnologiesName::find($id);
         $sector_Technology_head->category_id=$request->category_id;
         $sector_Technology_head->Sector_technologies_name_heading = $request->Sector_technologies_name_heading;
+        Toastr::success('Sector Technology heading Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_Technology_head->save();
         return redirect()->route('SectorTechnologyHeading.list')->with('success','Updated Successfully');
     }
@@ -56,6 +88,22 @@ class Sector_Technologies_Name_Heading extends Controller
     {
         //
         $sector_Technology_head = SectorTechnologiesName::find($id);
+        Toastr::error('Sector Technology heading Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $sector_Technology_head->delete();
         return redirect()->route('SectorTechnologyHeading.list')->with('success','Deleted Successfully');
     }

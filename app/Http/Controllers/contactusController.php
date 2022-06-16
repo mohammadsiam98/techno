@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\contactUs;
 class contactusController extends Controller
@@ -30,7 +30,23 @@ class contactusController extends Controller
         //
         $contact = contactUs::find($id);
         $contact->delete();
-        return redirect()->route('Contact.list')->with('success','Contact Details Deleted Successfully');
+        Toastr::error('Contact Details Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+        return redirect()->route('Contact.list');
     }
 
     public function preview($id)

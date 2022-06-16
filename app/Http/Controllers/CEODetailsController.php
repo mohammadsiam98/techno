@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\CeoDetails;
 use Illuminate\Support\Str;
+
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image as Image;
@@ -58,8 +60,24 @@ class CEODetailsController extends Controller
         //save Image to the thumbnail path
         Image::make($image)->save(public_path($ceo_image.$IMGNAME));
         $Ceo->image = $IMGNAME;
+        Toastr::success('CEO Details Inserted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $Ceo->save();
-        return redirect()->route('ceoDetails.list')->with('success','CEO Details Deleted Successfully');
+        return redirect()->route('ceoDetails.list');
     }
 
     public function edit($id)
@@ -99,8 +117,24 @@ class CEODetailsController extends Controller
             //saving the new image
             $Ceo->image = $IMGNAME;
         }
+        Toastr::success('CEO Details Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $Ceo->save();
-        return redirect()->route('ceoDetails.list')->with('success','Details updated Successfully');
+        return redirect()->route('ceoDetails.list');
     }
 
     public function destroy($id)
@@ -108,7 +142,23 @@ class CEODetailsController extends Controller
         //
         $Ceo = CeoDetails::find($id);
         $Ceo->delete();
-        return redirect()->route('ceoDetails.list')->with('success','Deleted Successfully');
+        Toastr::error('CEO Details Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+        return redirect()->route('ceoDetails.list');
     }
 
     public function preview($id)

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\SectorSpecialFeatureSection;
 use App\Models\Category;
@@ -47,6 +47,22 @@ class SectorSpecialFeaturesController extends Controller
                 $image->move($destinationPath, $profileImage);
                 $SectorSF['image'] = "$profileImage";
             }
+            Toastr::success('Sector Special Features Created Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+            "closeButton"=> "true",
+            "debug" => "false",
+            "newestOnTop"=> "false",
+            "progressBar"=> "true",
+            "preventDuplicates"=> "false",
+            "showDuration"=> "300",
+            "hideDuration"=> "1000",
+            "timeOut"=>"5000",
+            "extendedTimeOut"=> "1000",
+            "showEasing"=> "swing",
+            "hideEasing"=> "linear",
+            "showMethod"=> "fadeIn",
+            "hideMethod"=> "fadeOut",
+            "preventDuplicates"=> "true",
+    ]);
             $SectorSF->save();
             return redirect()->route('SectorSF.list')->with('success','Created Successfully');
         }
@@ -71,12 +87,28 @@ class SectorSpecialFeaturesController extends Controller
         $SectorSF->heading=$request->heading;
         $SectorSF->details = $request->details;
         if ($image = $request->file('image'))
-            {
-                $destinationPath = 'images/Sector_SF_Section/';
-                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-                $image->move($destinationPath, $profileImage);
-                $SectorSF['image'] = "$profileImage";
-            }
+        {
+            $destinationPath = 'images/Sector_SF_Section/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $SectorSF['image'] = "$profileImage";
+        }
+        Toastr::success('Sector Special Features Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+        ]);
         $SectorSF->save();
         return redirect()->route('SectorSF.list')->with('success','Updated Successfully');
     }
@@ -85,6 +117,22 @@ class SectorSpecialFeaturesController extends Controller
     {
         //
         $SectorSF = SectorSpecialFeatureSection::find($id);
+        Toastr::success('Sector Special Feature Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $SectorSF->delete();
         return redirect()->route('SectorSF.list')->with('success','Deleted Successfully');
     }
