@@ -1,6 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Company Details')
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -107,5 +108,9 @@
         </div>
     </div>
 </div>
+<!-- END: Content-->
 
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 @endsection

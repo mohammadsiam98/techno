@@ -1,6 +1,8 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Stack Details Lists')
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <style>
     .toggle-off.btn {
@@ -165,7 +167,9 @@
 
 </script>
 
-
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 
 @endsection

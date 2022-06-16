@@ -1,6 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Service Overview Details')
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <style>
     .badge.badge-light-primary {
@@ -11,6 +12,7 @@
     justify-content: center;
 }
 </style>
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -105,5 +107,10 @@
         </div>
     </div>
 </div>
+<!-- END: Content-->
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 @endsection
