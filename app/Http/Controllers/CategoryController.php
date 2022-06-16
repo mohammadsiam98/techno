@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\Category;
 class CategoryController extends Controller
@@ -29,8 +29,24 @@ class CategoryController extends Controller
         ]);
         $categoryDetails = new Category;
         $categoryDetails->categoryName = $request->categoryName;
+        Toastr::success('Category Inserted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $categoryDetails->save();
-        return redirect()->route('Category.list')->with('success','New Category Created Successfully'); // redirect to banner create page with a success message.
+        return redirect()->route('Category.list');
 
     }
 
@@ -45,8 +61,24 @@ class CategoryController extends Controller
     {
         $categoryDetails = Category::find($id);
         $categoryDetails->categoryName = $request->categoryName;
+        Toastr::success('Category Name Updated Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $categoryDetails->save();
-        return redirect()->route('Category.list')->with('success','Category Name Updated Successfully');
+        return redirect()->route('Category.list');
     }
 
     public function destroy($id)
@@ -54,6 +86,22 @@ class CategoryController extends Controller
         //
         $categoryDetails = Category::find($id);
         $categoryDetails->delete();
-        return redirect()->route('Category.list')->with('success','Category Name Deleted Successfully');
+        Toastr::success('Category Name Deleted Successfully', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+        return redirect()->route('Category.list');
     }
 }

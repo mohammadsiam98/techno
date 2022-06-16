@@ -2,7 +2,6 @@
 @section('content')
 @section('title', 'Category Edit')
 
-
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -62,4 +61,5 @@
     </div>
 </div>
 <!-- END: Content-->
+
 @endsection
