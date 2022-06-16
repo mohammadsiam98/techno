@@ -94,8 +94,10 @@
                     </div>
                 </div>
             </div>
+            <!-- Basic Tables end -->
         </div>
     </div>
 </div>
 <!-- END: Content-->
+
 @endsection

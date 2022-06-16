@@ -1,7 +1,11 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Blog | Lists')
+<!--Toastr CSS-->
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+<!--Toastr CSS-->
+
+
 <!--Toggle Css Part-->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <style>
@@ -69,7 +73,6 @@
                 </div>
             </div>
         </div>
-
         <div class="content-body">
             <!--Tables start-->
             <div class="row" id="basic-table">
@@ -105,7 +108,8 @@
                                                 $blog_details_Fetch->status == true ? 'checked' : ''}}>
                                         </td>
                                         <td>
-                                            <a href="{{route('Blogs.edit' , $blog_details_Fetch->id)}}" onclick="return confirm('Are you sure you want to edit this post?');">
+                                            <a href="{{route('Blogs.edit' , $blog_details_Fetch->id)}}"
+                                                onclick="return confirm('Are you sure you want to edit this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -114,7 +118,8 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('Blogs.destroy' , $blog_details_Fetch->id)}}" onclick="return confirm('Are you sure you want to delete this item?');">
+                                            <a href="{{route('Blogs.destroy' , $blog_details_Fetch->id)}}"
+                                                onclick="return confirm('Are you sure you want to delete this item?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -157,7 +162,7 @@
 
 <!--Toggle Javascript Part-->
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
@@ -168,6 +173,8 @@ crossorigin="anonymous"></script>
         });
     })
 </script>
+
+
 <script>
     $('.toggle-class').on('change', function() {
         var status = $(this).prop('checked') == true ? 1 : 0;
@@ -193,8 +200,13 @@ crossorigin="anonymous"></script>
 </script>
 <!--Toggle Javascript Part-->
 
-
+<!-- Toastr Scripts -->
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Toastr Scripts -->
+
+<!-- Toastr Message -->
 {!! Toastr::message() !!}
+<!-- Toastr Message -->
+
 @endsection

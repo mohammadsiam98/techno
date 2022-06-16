@@ -1,11 +1,18 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
-<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @section('title', 'Blog | Create')
+
+<!-- Ckeditor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+<!-- Ckeditor -->
+
+<!-- Google font poppins url -->
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 </style>
+<!-- Google font poppins url -->
 
+<!-- Stylesheet for error alert message -->
 <style>
 .alert-warning
 {
@@ -21,6 +28,7 @@
     background-color: white;
 }
 </style>
+<!-- Stylesheet for error alert message -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -145,7 +153,7 @@
                                                         class="custom-file-container__image-clear"
                                                         title="Clear Image"></a></label>
                                                 <label class="custom-file-container__custom-file">
-                                                    <input type="file" name="image" />
+                                                    <input type="file" name="image" required />
                                                     <span
                                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
@@ -172,7 +180,7 @@
                                                         class="custom-file-container__image-clear"
                                                         title="Clear Image"></a></label>
                                                 <label class="custom-file-container__custom-file">
-                                                    <input type="file" name="thumbnail_image" />
+                                                    <input type="file" name="thumbnail_image" required />
                                                     <span
                                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>

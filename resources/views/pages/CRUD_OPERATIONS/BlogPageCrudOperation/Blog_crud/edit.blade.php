@@ -1,7 +1,9 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
-<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 @section('title', 'Blog Details| Edit')
+<!-- Ckeditor -->
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<!-- Ckeditor -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -90,7 +92,7 @@
                                             </div>
                                             <div class="col-sm-9">
                                                 <textarea id="my-editor" name="description"
-                                                    class="form-control">{{$blog_details->description}}</textarea>
+                                                    class="form-control">{!!$blog_details->description!!}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -142,20 +144,24 @@
                                     {{-- Enter & Reset Button --}}
                                 </div>
 
-                                {{-- Blog Image Show --}}
+                                {{-- Blog Image Show (Image Intervention) --}}
                                 <div class="row">
                                     <h3>The image which you have uploaded is</h3>
-                                    <img src="{{url($blog_details->image)}}" style="width: 120px;height:auto;">
+                                    <img style="width: 150px; height:auto"
+                                        src="{{ asset('images/WebsitePosts/'.$blog_details->created_at->format('Y/M/').'/'.$blog_details->image) }}"
+                                        alt="Brands Collab Images">
                                 </div>
-                                {{-- Blog Image Show --}}
-                                
-                                
-                                {{-- Blog Thumbnail Image Show --}}
+                                {{-- Blog Image Show (Image Intervention) --}}
+
+
+                                {{-- Blog Thumbnail Image Show (Image Intervention) --}}
                                 <div class="row">
-                                    <h3>The thumbnail image which you have uploaded is</h3>
-                                    <img src="{{url($blog_details->thumbnail_image)}}" style="width: 120px;height:auto;">
+                                    <h3>The Thumbnail image which you have uploaded is</h3>
+                                    <img style="width: 150px; height:auto"
+                                        src="{{ asset('images/WebsitePosts/'.$blog_details->created_at->format('Y/M/').'/'.$blog_details->thumbnail_image) }}"
+                                        alt="Brands Collab Images">
                                 </div>
-                                {{-- Blog Thumbnail Image Show --}}
+                                {{-- Blog Thumbnail Image Show (Image Intervention) --}}
                             </form>
                         </div>
                     </div>
