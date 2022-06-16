@@ -2,6 +2,23 @@
 @section('content')
 @section('title', 'CEO Details Create')
 
+<!-- Stylesheet for error alert message -->
+<style>
+    .alert-warning {
+        background: rgb(0 0 0) !important;
+        color: #ffffff !important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+
+    .alert.alert-dismissible .btn-close {
+        background-color: white;
+    }
+</style>
+<!-- Stylesheet for error alert message -->
+
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">

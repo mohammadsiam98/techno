@@ -2,6 +2,23 @@
 @section('content')
 @section('title', 'Mission-Vision Create')
 
+<!-- Stylesheet for error alert message -->
+<style>
+    .alert-warning {
+        background: rgb(0 0 0) !important;
+        color: #ffffff !important;
+        font-size: 25px;
+        font-family: 'Poppins';
+        display: flex;
+        justify-content: center;
+    }
+
+    .alert.alert-dismissible .btn-close {
+        background-color: white;
+    }
+</style>
+<!-- Stylesheet for error alert message -->
+
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -13,9 +30,12 @@
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
                         <a href="{{route('goal.list')}}">
-                            <button type="button" class="btn btn-dark waves-effect waves-float waves-light" style="float: right">
+                            <button type="button" class="btn btn-dark waves-effect waves-float waves-light"
+                                style="float: right">
                                 <span style="font-size: 22px; margin-right:5px;">Mission & Vision Details</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-list">
                                     <line x1="8" y1="6" x2="21" y2="6"></line>
                                     <line x1="8" y1="12" x2="21" y2="12"></line>
                                     <line x1="8" y1="18" x2="21" y2="18"></line>
@@ -35,45 +55,60 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="{{route('goal.store')}}" method="POST" enctype="multipart/form-data">
-                                @csrf                       
+                                @csrf
                                 {{method_field('PUT')}}
                                 <div class="row">
+                                    <!-- Mission -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
                                                 <label class="col-form-label" for="mission">Mission</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <textarea id="mission" class="form-control" name="mission" value="{{ (old('mission')?old('mission'):'') }}" autocomplete="off"> </textarea>
+                                                <textarea id="mission" class="form-control" name="mission"
+                                                    value="{{ (old('mission')?old('mission'):'') }}"
+                                                    autocomplete="off" required> </textarea>
                                             </div>
                                             @if($errors->first('mission'))
                                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                                 <strong>{{$errors->first('mission')}}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
                                             </div>
                                             @endif
                                         </div>
                                     </div>
+                                    <!-- Mission -->
+
+
+                                    <!-- Vision -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
                                                 <label class="col-form-label" for="vision">Vision</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <textarea id="vision" class="form-control" name="vision" value="{{ (old('vision')?old('vision'):'') }}" autocomplete="off"></textarea>
+                                                <textarea id="vision" class="form-control" name="vision"
+                                                    value="{{ (old('vision')?old('vision'):'') }}"
+                                                    autocomplete="off" required></textarea>
                                             </div>
                                             @if($errors->first('vision'))
                                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                                 <strong>{{$errors->first('vision')}}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                    aria-label="Close"></button>
                                             </div>
                                             @endif
                                         </div>
                                     </div>
+                                    <!-- Vision -->
+
+                                    <!-- Action Buttons -->
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-info">Reset</button>
                                     </div>
+                                    <!-- Action Buttons -->
                                 </div>
                             </form>
                         </div>
