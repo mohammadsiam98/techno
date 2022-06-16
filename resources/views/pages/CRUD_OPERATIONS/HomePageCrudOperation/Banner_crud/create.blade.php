@@ -58,6 +58,7 @@
                                 {{method_field('PUT')}}
                                 <div class="row">
                                     <!-- Banner Header Insert -->
+                                  
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -141,5 +142,7 @@
     </div>
 </div>
 <!-- END: Content-->
+
+
 
 @endsection

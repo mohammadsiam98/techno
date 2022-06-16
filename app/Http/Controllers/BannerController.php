@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\Banner; // Banner Model Import 
 use Illuminate\Support\Str;
@@ -60,8 +60,25 @@ class BannerController extends Controller
         //save Image to the thumbnail path
         Image::make($image)->save(public_path($banner_image.$IMGNAME));
         $banner->image = $IMGNAME;
+        Toastr::success('Banner Successfully Added', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+      
+    ]);
         $banner->save();
-        return redirect()->route('Banner.list')->with('success','New Banner created Successfully'); // redirect to banner create page with a success message.
+        return redirect()->route('Banner.list');
 
     }
 
@@ -103,9 +120,24 @@ class BannerController extends Controller
                 //saving the new image
                 $banner->image = $IMGNAME;
             }
-    
+            Toastr::success('Banner Successfully Updated', 'Success', ["positionClass" => "toast-bottom-right",
+            "closeButton"=> "true",
+            "debug" => "false",
+            "newestOnTop"=> "false",
+            "progressBar"=> "true",
+            "preventDuplicates"=> "false",
+            "showDuration"=> "300",
+            "hideDuration"=> "1000",
+            "timeOut"=>"5000",
+            "extendedTimeOut"=> "1000",
+            "showEasing"=> "swing",
+            "hideEasing"=> "linear",
+            "showMethod"=> "fadeIn",
+            "hideMethod"=> "fadeOut",
+            "preventDuplicates"=> "true",
+        ]);
             $banner->save();
-            return redirect()->route('Banner.list')->with('success','Banner details updated Successfully');
+            return redirect()->route('Banner.list');
         }
         else
         {
@@ -117,7 +149,23 @@ class BannerController extends Controller
     {
         $banner = Banner::find($id);
         $banner->delete();
-        return redirect()->route('Banner.list')->with('success','Banner Deleted Successfully');
+        Toastr::error('Post Successfully Deleted', 'Danger', ["positionClass" => "toast-bottom-right",
+            "closeButton"=> "true",
+            "debug" => "false",
+            "newestOnTop"=> "false",
+            "progressBar"=> "true",
+            "preventDuplicates"=> "false",
+            "showDuration"=> "300",
+            "hideDuration"=> "1000",
+            "timeOut"=>"5000",
+            "extendedTimeOut"=> "1000",
+            "showEasing"=> "swing",
+            "hideEasing"=> "linear",
+            "showMethod"=> "fadeIn",
+            "hideMethod"=> "fadeOut",
+            "preventDuplicates"=> "true",
+        ]);
+        return redirect()->route('Banner.list');
     }
 
     public function updateStatus(Request $request)

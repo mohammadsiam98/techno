@@ -40,6 +40,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('ADMIN_ASSETS/assets/css/style.css')}}">
     <!-- END: Custom CSS-->
+    
 
 </head>
 <!-- END: Head-->
@@ -457,8 +458,6 @@
     };
     CKEDITOR.replace('my-editor', options);
     </script>
-    
-
 
 
 

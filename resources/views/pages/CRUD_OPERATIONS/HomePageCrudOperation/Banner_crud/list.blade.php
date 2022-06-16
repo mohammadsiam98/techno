@@ -1,7 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Banner Lists')
-
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 <!-- Banner Status Toggle Css CDN from Official Documentation -->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <style>
@@ -97,7 +97,7 @@
                                                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('Banner.destroy' , $slider->id)}}">
+                                            <a href="{{route('Banner.destroy' , $slider->id)}}" onclick="return confirm('Are you sure you want to delete this item?');" >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2">
                                                     <polyline points="3 6 5 6 21 6"></polyline>
                                                     <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -114,8 +114,6 @@
                                                     <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
                                                 </svg>
                                             </a>
-
-
                                         </td>
                                     </tr>
                                     @endforeach
@@ -141,7 +139,6 @@
             , off: 'Disabled'
         });
     })
-
 </script>
 
 <script>
@@ -169,5 +166,9 @@
 
 </script>
 <!-- Status Toggle Button Javascript -->
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 @endsection
