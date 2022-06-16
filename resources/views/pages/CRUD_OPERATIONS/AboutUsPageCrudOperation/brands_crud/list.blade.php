@@ -1,6 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Brands List')
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -51,7 +52,7 @@
                                             <img style="width: 150px; height:auto" src="{{ asset('images/brandsCollabWith/'.$brandDetails->created_at->format('Y/M/').'/'.$brandDetails->image) }}" alt="Brands Collab Images">
                                         </td>
                                         <td>
-                                            <a href="{{route('brands.edit' , $brandDetails->id)}}">
+                                            <a href="{{route('brands.edit' , $brandDetails->id)}}" onclick="return confirm('Are you sure you want to edit this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -60,7 +61,7 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('brands.destroy' , $brandDetails->id)}}">
+                                            <a href="{{route('brands.destroy' , $brandDetails->id)}}" onclick="return confirm('Are you sure you want to delete this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -87,4 +88,8 @@
 </div>
 <!-- END: Content-->
 
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Toastr;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
@@ -44,6 +45,23 @@ class BrandsCollabWithController extends Controller
         //save Image to the thumbnail path
         Image::make($image)->save(public_path($brands_image.$IMGNAME));
         $brands->image = $IMGNAME;
+
+        Toastr::success('Brand Image Successfully Inserted', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $brands->save();
         return redirect()->route('brands.list')->with('success','Brand Image Inserted Successfully'); // redirect to banner create page with a success message.
 
@@ -52,8 +70,13 @@ class BrandsCollabWithController extends Controller
     public function edit($id)
     {
         //
-        $brands = brands::find($id); // Fetch specific banner id
-        return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.brands_crud.edit',compact('brands'));
+        $brands = brands::find($id);
+        if(!empty($brands)){
+            return view('pages.CRUD_OPERATIONS.AboutUsPageCrudOperation.brands_crud.edit',compact('brands'));
+        }
+        else{
+            return 'This id not found';
+        }
     }
 
     public function update(Request $request, $id)
@@ -78,6 +101,22 @@ class BrandsCollabWithController extends Controller
             //saving the new image
             $brands->image = $IMGNAME;
         }
+        Toastr::success('Brand Image Successfully Updated', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         $brands->save();
         return redirect()->route('brands.list')->with('success','Image updated Successfully');
     }
@@ -87,6 +126,22 @@ class BrandsCollabWithController extends Controller
         //
         $brands = brands::find($id);
         $brands->delete();
+        Toastr::error('Brand Image Successfully Deleted', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
         return redirect()->route('brands.list')->with('success','Banner Deleted Successfully');
     }
 }
