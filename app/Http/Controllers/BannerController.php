@@ -149,7 +149,7 @@ class BannerController extends Controller
     {
         $banner = Banner::find($id);
         $banner->delete();
-        Toastr::error('Post Successfully Deleted', 'Danger', ["positionClass" => "toast-bottom-right",
+        Toastr::error('Post Successfully Deleted', 'Success', ["positionClass" => "toast-bottom-right",
             "closeButton"=> "true",
             "debug" => "false",
             "newestOnTop"=> "false",

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -81,6 +82,22 @@ class BlogController extends Controller
         Image::make($thumbnail_image)->save(public_path($preview_image.$thumbnail_IMGNAME));
         $blog_details->thumbnail_image = $thumbnail_IMGNAME;
 
+        Toastr::success('Post Successfully Inserted', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
 
         $blog_details->save();
         return redirect()->route('Blogs.list')->with('success','New Blog created Successfully'); // redirect to banner create page with a success message.
@@ -147,8 +164,25 @@ class BlogController extends Controller
             //saving the new image
             $blog_details->thumbnail_image = $thumbnail_IMGNAME;
         }
+        Toastr::success('Post Successfully Updated', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+
         $blog_details->save();
-        return redirect()->route('Blogs.list')->with('success','Blog details updated Successfully');
+        return redirect()->route('Blogs.list');
     }
 
     public function destroy($id)
@@ -156,10 +190,29 @@ class BlogController extends Controller
         //
         $blog_details = Blog::find($id);
         $blog_details->delete();
-        if(!empty($blog_details)){
-            return redirect()->route('Blogs.list')->with('success','Blog Deleted Successfully');
+        Toastr::error('Post Successfully Deleted', 'Success', ["positionClass" => "toast-bottom-right",
+        "closeButton"=> "true",
+        "debug" => "false",
+        "newestOnTop"=> "false",
+        "progressBar"=> "true",
+        "preventDuplicates"=> "false",
+        "showDuration"=> "300",
+        "hideDuration"=> "1000",
+        "timeOut"=>"5000",
+        "extendedTimeOut"=> "1000",
+        "showEasing"=> "swing",
+        "hideEasing"=> "linear",
+        "showMethod"=> "fadeIn",
+        "hideMethod"=> "fadeOut",
+        "preventDuplicates"=> "true",
+    ]);
+
+        if(!empty($blog_details))
+        {
+            return redirect()->route('Blogs.list');
         }
-        else{
+        else
+        {
             return 'This id not found';
         }
     }
@@ -169,9 +222,8 @@ class BlogController extends Controller
         $blog_details = Blog::find($request->blog_id);
         $blog_details->status = $request->status;
         $blog_details->save(); 
-        return redirect()->route('Blogs.list')->with('success',"Blog Activated Successfully");
+        return redirect()->route('Blogs.list');
     }
-
 
     public function preview($id)
     {
@@ -192,28 +244,28 @@ class BlogController extends Controller
         return view ('pages.CRUD_OPERATIONS.BlogPageCrudOperation.Blog_crud.restoreList',compact('blog_details'));
     }
 
-
     public function restoreData($id)
     {
         //
         $blog_details = Blog::onlyTrashed()->find($id)->restore();
         if(!empty($blog_details)){
-            return redirect()->route('Blogs.restoreList')->with('success',"Blog Restored Successfully");
+            return redirect()->route('Blogs.restoreList');
         }
         else{
             return 'This id not found';
         }
     }
 
-
     public function forceDelete($id)
     {
         //
         $blog_details = Blog::onlyTrashed()->find($id)->forceDelete();
-        if(!empty($blog_details)){
-            return redirect()->route('Blogs.restoreList')->with('success',"Blog Permanently Deleted Successfully");
+        if(!empty($blog_details))
+        {
+            return redirect()->route('Blogs.restoreList');
         }
-        else{
+        else
+        {
             return 'This id not found';
         }  
     } 

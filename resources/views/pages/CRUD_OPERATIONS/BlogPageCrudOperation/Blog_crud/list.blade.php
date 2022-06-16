@@ -1,7 +1,7 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Blog | Lists')
-
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 <!--Toggle Css Part-->
 <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 <style>
@@ -105,7 +105,7 @@
                                                 $blog_details_Fetch->status == true ? 'checked' : ''}}>
                                         </td>
                                         <td>
-                                            <a href="{{route('Blogs.edit' , $blog_details_Fetch->id)}}">
+                                            <a href="{{route('Blogs.edit' , $blog_details_Fetch->id)}}" onclick="return confirm('Are you sure you want to edit this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -114,7 +114,7 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('Blogs.destroy' , $blog_details_Fetch->id)}}">
+                                            <a href="{{route('Blogs.destroy' , $blog_details_Fetch->id)}}" onclick="return confirm('Are you sure you want to delete this item?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -192,4 +192,9 @@ crossorigin="anonymous"></script>
     });
 </script>
 <!--Toggle Javascript Part-->
+
+
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 @endsection
