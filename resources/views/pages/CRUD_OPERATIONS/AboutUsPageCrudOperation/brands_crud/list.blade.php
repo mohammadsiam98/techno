@@ -1,7 +1,10 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'Brands List')
+
+<!-- Toastr Stylesheet -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+<!-- Toastr Stylesheet -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -49,10 +52,13 @@
                                     <tr>
                                         <td class="checkbox-column text-center"> {{$key+1}} </td>
                                         <td>
-                                            <img style="width: 150px; height:auto" src="{{ asset('images/brandsCollabWith/'.$brandDetails->created_at->format('Y/M/').'/'.$brandDetails->image) }}" alt="Brands Collab Images">
+                                            <img style="width: 150px; height:auto"
+                                                src="{{ asset('images/brandsCollabWith/'.$brandDetails->created_at->format('Y/M/').'/'.$brandDetails->image) }}"
+                                                alt="Brands Collab Images">
                                         </td>
                                         <td>
-                                            <a href="{{route('brands.edit' , $brandDetails->id)}}" onclick="return confirm('Are you sure you want to edit this post?');">
+                                            <a href="{{route('brands.edit' , $brandDetails->id)}}"
+                                                onclick="return confirm('Are you sure you want to edit this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -61,7 +67,8 @@
                                                     </path>
                                                 </svg>
                                             </a>
-                                            <a href="{{route('brands.destroy' , $brandDetails->id)}}" onclick="return confirm('Are you sure you want to delete this post?');">
+                                            <a href="{{route('brands.destroy' , $brandDetails->id)}}"
+                                                onclick="return confirm('Are you sure you want to delete this post?');">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                     viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -83,13 +90,18 @@
                     </div>
                 </div>
             </div>
+            <!-- Basic Tables end -->
         </div>
     </div>
 </div>
 <!-- END: Content-->
 
-
+<!-- Toastr Scripts -->
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Toastr Scripts -->
+
+<!-- Toastr Message -->
 {!! Toastr::message() !!}
+<!-- Toastr Message -->
 @endsection

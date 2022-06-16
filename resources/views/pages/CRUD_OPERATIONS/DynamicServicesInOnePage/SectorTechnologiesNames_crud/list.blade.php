@@ -2,6 +2,7 @@
 @section('content')
 @section('title', 'technology names')
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -73,6 +74,7 @@
         </div>
     </div>
 </div>
+<!-- END: Content-->
 
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
@@ -86,7 +88,6 @@
     })
 
 </script>
-
 
 <script>
     $('.toggle-class').on('change', function() {

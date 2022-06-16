@@ -2,22 +2,22 @@
 @section('content')
 @section('title', 'Brand Create')
 
+<!-- Stylesheet for error alert message -->
 <style>
-    .alert-warning
-    {
-        background: rgb(0 0 0)!important;
-        color: #ffffff!important;
+    .alert-warning {
+        background: rgb(0 0 0) !important;
+        color: #ffffff !important;
         font-size: 25px;
         font-family: 'Poppins';
         display: flex;
         justify-content: center;
     }
-    .alert.alert-dismissible .btn-close
-    {
+
+    .alert.alert-dismissible .btn-close {
         background-color: white;
     }
 </style>
-
+<!-- Stylesheet for error alert message -->
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -66,15 +66,17 @@
                                                         class="custom-file-container__image-clear"
                                                         title="Clear Image"></a></label>
                                                 <label class="custom-file-container__custom-file">
-                                                    <input type="file" name="image">
+                                                    <input type="file" name="image" required>
                                                     <span
                                                         class="custom-file-container__custom-file__custom-file-control"></span>
                                                 </label>
                                                 <div class="custom-file-container__image-preview"></div>
                                                 @if($errors->first('image'))
-                                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                                <div class="alert alert-warning alert-dismissible fade show"
+                                                    role="alert">
                                                     <strong>{{$errors->first('image')}}</strong>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                        aria-label="Close"></button>
                                                 </div>
                                                 @endif
                                             </div>
@@ -87,7 +89,7 @@
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                     <!-- Submit Button -->
-                                    
+
                                 </div>
                             </form>
                         </div>
