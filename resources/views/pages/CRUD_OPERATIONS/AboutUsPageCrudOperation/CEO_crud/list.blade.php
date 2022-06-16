@@ -1,7 +1,10 @@
 @extends('layouts.admin_dashboard_layout')
 @section('content')
 @section('title', 'CEO Details')
+<!-- Toastr Css -->
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+<!-- Toastr Css -->
+
 
 <!-- BEGIN: Content-->
 <div class="app-content content ">
@@ -93,6 +96,7 @@
 </div>
 <!-- END: Content-->
 
+<!-- START=> Bootstrap Toggle Scripts -->
 <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
@@ -105,7 +109,6 @@
     })
 
 </script>
-
 
 <script>
     $('.toggle-class').on('change', function() {
@@ -131,10 +134,15 @@
     });
 
 </script>
+<!-- END=> Bootstrap Toggle Scripts -->
 
-
+<!-- Toastr Scripts -->
 <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Toastr Scripts -->
+
+<!-- Toastr Message -->
 {!! Toastr::message() !!}
+<!-- Toastr Message -->
 
 @endsection

@@ -2,7 +2,6 @@
 @section('content')
 @section('title', 'CEO Details Edit')
 
-
 <!-- BEGIN: Content-->
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -37,6 +36,7 @@
                             <form id="" action="{{route('ceoDetails.update',$Ceo->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
+                                    <!-- CEO Name -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -47,6 +47,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- CEO Name -->
+
+                                    <!-- CEO Designation -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -57,7 +60,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- CEO Designation -->
 
+                                    <!-- CEO Speech -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -68,8 +73,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- CEO Speech -->
 
-
+                                    <!-- CEO Image -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="custom-file-container" data-upload-id="myFirstImage">
@@ -82,16 +88,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- CEO Image -->
 
+                                    <!-- Action Button -->
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Update CEO Details</button>
                                     </div>
+                                    <!-- Action Button -->
                                 </div>
                             </form>
+                            <!-- Image uploaded using Intervention, that is why intervention format -->
                             <div>
                                 <h4 class="mt-25">The image which you uploaded is </h4>
                                 <img style="width: 150px; height:auto" src="{{ asset('images/CEO_Image/'.$Ceo->created_at->format('Y/M/').'/'.$Ceo->image) }}" alt="CEO Image">
                             </div>
+                            <!-- Image uploaded using Intervention, that is why intervention format -->
                         </div>
                     </div>
 
@@ -101,4 +112,5 @@
     </div>
 </div>
 <!-- END: Content-->
+
 @endsection

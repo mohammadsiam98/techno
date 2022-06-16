@@ -79,12 +79,12 @@
                     </div>
                 </div>
 
-                <!-- Image Preview Which Already Uploaded -->
+                <!-- Image uploaded using Intervention, that is why intervention format -->
                 <div class="row">
                     <h3>The image which you have uploaded is</h3>
                     <img style="width: 120px; height:auto" src="{{ asset('images/CEO_Image/'.$Ceo->created_at->format('Y/M/').'/'.$Ceo->image) }}" alt="CEO Image">
                 </div>
-                <!-- Image Preview Which Already Uploaded -->
+                <!-- Image uploaded using Intervention, that is why intervention format -->
 
             </section>
             <!-- Basic Tabs end -->
