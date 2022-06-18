@@ -80,28 +80,6 @@
                                     </div>
                                     <!-- Banner Header Insert -->
 
-                                    <!-- Banner Sub-Header Insert -->
-                                    <div class="col-12">
-                                        <div class="mb-1 row">
-                                            <div class="col-sm-3">
-                                                <label class="col-form-label" for="subheading">Sub Heading</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" id="subheading" class="form-control"
-                                                    name="subheading"
-                                                    value="{{ (old('subheading')?old('subheading'):'') }}"
-                                                    placeholder="Enter your banner subheader" autocomplete="off" required />
-                                            </div>
-                                            @if($errors->first('subheading'))
-                                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                                <strong>{{$errors->first('subheading')}}</strong>
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                            </div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <!-- Banner Sub-Header Insert -->
-
                                     <!-- Banner Image Insert -->
                                     <div class="col-12">
                                         <div class="mb-1 row">

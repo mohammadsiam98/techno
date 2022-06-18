@@ -61,11 +61,6 @@
                                         </p>
 
                                     </div>
-                                    <div class="tab-pane" id="profileIcon" aria-labelledby="profileIcon-tab" role="tabpanel">
-                                        <p>
-                                            {{$banner->subheading}}
-                                        </p>
-                                    </div>
 
                                     <div class="tab-pane" id="imageTab" aria-labelledby="image-tab" role="tabpanel">
                                         <p>
@@ -77,11 +72,6 @@
                         </div>
                     </div>
                     <!-- Tabs with Icon ends -->
-
-                    <div class="col-md-6">
-
-                    </div>
-
                 </div>
             </section>
             <!-- Basic Tabs end -->

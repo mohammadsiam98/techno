@@ -56,6 +56,7 @@
                                     </div>
                                     {{-- Category List --}}
 
+                                    <!-- Page Heading -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -66,6 +67,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                     <!-- Page Heading -->
+
+                                    <!-- Service Overview Title -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -76,6 +80,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Service Overview Title -->
+
+                                    <!-- Service Overview Details -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -86,6 +93,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Service Overview Details -->
+
+                                    <!-- Service Overview image -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="custom-file-container" data-upload-id="myFirstImage">
@@ -98,19 +108,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Service Overview image -->
+
+                                    <!-- Action Button -->
                                     <div class="col-12">
-                                        <button type="submit" class="btn btn-primary">Update</button>
+                                        <button type="submit" class="btn btn-primary">Update Details</button>
                                     </div>
+                                    <!-- Action Button -->
+
+                                    
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
 
+                <!-- Image uploaded without using Image Intervention Package -->
                 <div class="row">
                     <h3>The image which you have uploaded is</h3>
                     <img src="/images/ServiceOverViewSectionImages/{{$ServiceOverviewDetails->image}}" style="width: 33%">
                 </div>
+                <!-- Image uploaded without using Image Intervention Package -->
                 
             </section>
         </div>

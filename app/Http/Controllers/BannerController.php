@@ -33,7 +33,6 @@ class BannerController extends Controller
         // Validation when a banner store in database
         $this->validate($request,[
             'heading' => 'required|min:3|max:100|string',
-            'subheading' => 'required|min:3|max:100|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:15630',
 
         ],[
@@ -41,16 +40,10 @@ class BannerController extends Controller
             'heading.min' => 'Slider heading should be at least minimum 3 characters', // title should be at least minimum 3 characters.
             'heading.max' => 'Slider heading should be maximum 100 characters', // title should not be maximum 100 character
 
-            'subheading.required' => 'Please write your slider sub heading', // admin have to write banner title.
-            'subheading.min' => 'Slider sub heading should be at least minimum 3 characters', // title should be at least minimum 3 characters.
-            'subheading.max' => 'Slider sub heading should be maximum 100 characters', // title should not be maximum 100 character
-
-
             'image.required' => 'Please upload your image', // Image is required in banner.
         ]);
         $banner = new Banner;
         $banner->heading = $request->heading;
-        $banner->subheading = $request->subheading;
 
         $image= $request->file('image');
         $IMGNAME = Str::random(10).'.'. $image->getClientOriginalExtension();       
@@ -94,14 +87,13 @@ class BannerController extends Controller
         
     }
 
-    public function update ($id)
+    public function update ( Request $request, $id)
     {
         // Fetch Specific single banner
         $banner = Banner::find($id);
         if (!empty($banner)){
 
             $banner->heading = $request->heading;
-            $banner->subheading = $request->subheading;
             if($request->hasFile('image')){
                 $image= $request->file('image');
                 $IMGNAME = Str::random(10).'.'. $image->getClientOriginalExtension();       

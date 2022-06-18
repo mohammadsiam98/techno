@@ -82,10 +82,12 @@
                     </div>
                     <!-- Tabs with Icon ends -->
                 </div>
+                <!-- Image uploaded without using Image Intervention Package -->
                 <div class="row">
                     <h3>The image which you have uploaded is</h3>
                     <img src="/images/ServiceOverViewSectionImages/{{$ServiceOverviewDetails->image}}" style="width: 33%">
                 </div>
+                <!-- Image uploaded without using Image Intervention Package -->
             </section>
             <!-- Basic Tabs end -->
         </div>

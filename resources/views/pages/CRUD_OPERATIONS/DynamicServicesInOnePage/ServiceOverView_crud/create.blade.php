@@ -3,6 +3,7 @@
 @section('content')
 @section('title', 'Service Overview Create')
 
+<!-- Stylesheet for error alert  --> 
 <style>
     .alert-warning
     {
@@ -18,6 +19,7 @@
         background-color: white;
     }
 </style>
+<!-- Stylesheet for error alert  --> 
 
 
 <!-- BEGIN: Content-->
@@ -55,7 +57,7 @@
                                 @csrf
                                 {{method_field('PUT')}}
                                 <div class="row">
-                                    
+                                    <!-- Category Fetch --> 
                                     <div class="col-12 basic-select2">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -71,7 +73,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Category Fetch --> 
 
+                                    <!-- Page Heading Fetch --> 
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -88,7 +92,9 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <!-- Page Heading Fetch --> 
+                                    
+                                    <!-- Service Overview Title Fetch --> 
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -105,7 +111,9 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <!-- Service Overview Title Fetch --> 
 
+                                    <!-- Service Overview Details Fetch --> 
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="col-sm-3">
@@ -122,7 +130,9 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <!-- Service Overview Details Fetch --> 
 
+                                    <!-- Service Overview Image Fetch --> 
                                     <div class="col-12">
                                         <div class="mb-1 row">
                                             <div class="custom-file-container" data-upload-id="myFirstImage">
@@ -141,18 +151,19 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- Service Overview Image Fetch --> 
 
+                                    <!-- Action Buttons --> 
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-info">Reset</button>
 
                                     </div>
-                                    
+                                    <!-- Action Buttons --> 
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>

@@ -57,22 +57,6 @@
                                     </div>
                                     <!-- Edit Banner Heading -->
 
-                                    <!-- Edit Banner Sub-Heading -->
-                                    <div class="col-12">
-                                        <div class="mb-1 row">
-                                            <div class="col-sm-3">
-                                                <label class="col-form-label" for="subheading">Sub Heading</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" id="subheading" class="form-control"
-                                                    name="subheading" value="{{$banner->subheading}}"
-                                                    value="{{ (old('subheading')?old('subheading'):'') }}"
-                                                    placeholder="Edit your banner subheader" autocomplete="off" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Edit Banner Sub-Heading -->
-
                                     <!-- Edit Banner Image -->
                                     <div class="col-12">
                                         <div class="mb-1 row">
